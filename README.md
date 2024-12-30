@@ -5,9 +5,21 @@ TODO
 TODO
 ### NAND Layout and ECC
 TODO
-## Steps
-### Obtaining the sauce
+## Useful Commands
+Install dependencies
+```
+poetry install
+```
 ### Correct ECC errors
-### Strip out non-data parts
+```
+poetry run python correct-errors.py flashdump.bin
+```
+### Strip out non-data (Out-of-Band) parts
+```
+poetry run python remove-oob.py flashdump.bin.corrected
+```
 ### Split the binary file
+```
+poetry run python carve-mtds.py flashdump.bin.corrected.main
+```
 ### Unpack UBI partitions
