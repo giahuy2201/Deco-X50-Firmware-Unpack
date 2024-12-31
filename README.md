@@ -2,7 +2,18 @@
 ## About
 TODO
 ## Hardware Specifications
-TODO
+
+|  |  |
+| ------------- | ------------- |
+| Vendor | TP-Link |
+| Model | Deco X50 / AX3000 v1 |
+| CPU | Qualcomm IPQ5018 |
+| RAM | ? |
+| Flash | ESMT F50D1G41LB 128 MiB |
+| UART | 1.8V |
+
+Accessing u-boot shell requires quickly typing in `tpl` when the device boots up
+
 ### NAND Layout and ECC
 
 Qualcomm SoC has their own layout for flash memory which is different from the standard 512 bytes of main data followed by 16 bytes of spare as suggested by flash vendors. 
