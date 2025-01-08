@@ -81,3 +81,18 @@ Example for `map.txt` (obtained from boot log via UART)
 Each mtd partition is stored under `parts/mtd<number>.<name>.bin`
 
 ### Unpack UBI partitions
+
+Use [ubireader_extract_images](https://github.com/onekey-sec/ubi_reader) to extract content from UBI image formated partition `mtd11.rootfs.bin`, `mtd12.rootfs_1.bin`, `mtd14.factory_data.bin` and `mtd15.runtime_data.bin`. The resulted UBIfs images could then be extracted with __ubireader_extract_file__ to get the following files:
+
+```
+├── factory_data
+│   └── product-info
+└── runtime_data
+    ├── device-config
+    ├── group-info
+    └── user-config
+```
+
+While `factory_data/product-info` and `runtime_data/group-info` are readable, `device-config` and `user-config` from `runtime_data` when run through `binwalk -E` result in high entropy which means encrypted
+
+### Decrypt the config files
