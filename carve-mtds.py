@@ -1,8 +1,11 @@
 import sys, os, re, subprocess
 import config
 
-mapfname = sys.argv.pop()  # mtd partition mapping obtained from boot log via UART
-binfname = sys.argv.pop()  # flashdump.bin.corrected.main
+if len(sys.argv) < 3:
+    print(f'Usage: python {sys.argv[0]} <corrected dump> <address map>')
+    sys.exit(-1)
+mapfname = sys.argv[1]  # mtd partition mapping obtained from boot log via UART
+binfname = sys.argv[2]  # flashdump.bin.corrected.main
 
 # ex.0x000000000000-0x000000080000 : "SBL1"
 ADDRESSES_RE = r"0x[0-9a-fA-F]*"  # extract start and end address

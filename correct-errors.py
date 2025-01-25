@@ -1,7 +1,10 @@
 import sys, os, bchlib
 import config
 
-infname = sys.argv.pop()
+if len(sys.argv) < 2:
+    print(f'Usage: python {sys.argv[0]} <uncorrected dump>')
+    sys.exit(-1)
+infname = sys.argv[1]
 inf = open(infname, "rb")
 
 outf = open("{}.corrected".format(infname), "wb")
