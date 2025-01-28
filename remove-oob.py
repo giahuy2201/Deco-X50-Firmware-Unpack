@@ -1,4 +1,4 @@
-import sys, os, bchlib
+import sys, os
 import config
 
 if len(sys.argv) < 2:
@@ -9,8 +9,6 @@ inf = open(infname, "rb")
 
 outf_main = open("{}.main".format(infname), "wb")
 outf_oob = open("{}.oob".format(infname), "wb")
-
-bch = bchlib.BCH(config.ECC_MODE, prim_poly=config.BCH_POLY)
 
 
 def write(data, oob):
